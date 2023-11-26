@@ -113,6 +113,7 @@ async function getAllProducts(reqQuery) {
     const existCategory = await Category.findOne({ name: category });
     if (existCategory)
       query = query.where("category").equals(existCategory._id);
+      
     else return { content: [], currentPage: 1, totalPages: 1 };
   }
 
@@ -161,7 +162,7 @@ async function getAllProducts(reqQuery) {
   query = query.skip(skip).limit(pageSize);
 
   const products = await query.exec();
-
+  console.log(products)
   const totalPages = Math.ceil(totalProducts / pageSize);
 
   return { content: products, currentPage: pageNumber, totalPages: totalPages };
@@ -169,6 +170,7 @@ async function getAllProducts(reqQuery) {
 
 // Creates Multiple Products
 async function createMultipleProducts(products) {
+  console.log(products)
   for (let product of products) {
     await createProduct(product);
   }

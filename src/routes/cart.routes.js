@@ -4,10 +4,10 @@ const router=express.Router();
 const cartController=require("../controller/cart.controller.js")
 
 // GET: /api/cart
-router.get("/", authenticate, cartController.findUserCart);   // Tested:Wroking
+router.get("/", cartController.findUserCart);   // Tested:Wroking
 
 // PUT: /api/cart/add
-router.put("/add", authenticate, cartController.addItemToCart);  // Tested:Wroking
+router.put("/add", cartController.addItemToCart);  // Tested:Wroking
 
 
 module.exports=router;
