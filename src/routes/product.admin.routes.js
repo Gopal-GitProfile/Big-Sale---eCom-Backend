@@ -10,4 +10,4 @@ router.post('/creates', productController.createMultipleProduct);
 router.delete('/:id', productController.deleteProduct);
 router.put('/:id', productController.updateProduct);
 
-module.exports=router;
+module.exports= router;
